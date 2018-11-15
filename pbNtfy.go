@@ -10,10 +10,14 @@ import (
 )
 
 func main() {
-	// Set the access token.
-	token := "o.JC28TTeO5d9KxwA1WuIoRisoLOAL8WCL"
+	if len(os.Args) == 1 {
+		fmt.Println("you must provide the token")
+		os.Exit(1)
+	}
+
 	ip := GetLocalIP()
 	name, err := os.Hostname()
+	token := os.Args[1]
 
 	if err != nil {
 		panic(err)
